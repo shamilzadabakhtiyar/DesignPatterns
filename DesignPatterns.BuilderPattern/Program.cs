@@ -1,4 +1,5 @@
 ﻿using DesignPatterns.BuilderPattern.Method1;
+using DesignPatterns.BuilderPattern.Method2;
 
 var eb = new EndpointBuilder("https://localhost");
 eb
@@ -17,4 +18,9 @@ var employee = empBuilder
     .SetEmailAddress("bakhtiyarshamilzada@gmail.com")
     .Build();
 
-Console.WriteLine(employee);
+//Console.WriteLine(employee);
+
+IEmployeeBuilderM2 employeeBuilderM2 = new InternalEmployeeBuilder();
+employeeBuilderM2.SetEmailAddress("bakhtiyarshamilzada@gmail.com");
+var emp = employeeBuilderM2.Build();
+Console.WriteLine(emp.EmailAddress);
