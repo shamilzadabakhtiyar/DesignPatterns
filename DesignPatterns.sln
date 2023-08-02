@@ -3,9 +3,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.6.33815.320
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DesignPatterns.SingletonPattern", "DesignPatterns.SingletonPattern\DesignPatterns.SingletonPattern.csproj", "{C5E92EA6-132C-47FF-B08F-2DA0039DA448}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DesignPatterns.SingletonPattern", "DesignPatterns.SingletonPattern\DesignPatterns.SingletonPattern.csproj", "{C5E92EA6-132C-47FF-B08F-2DA0039DA448}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DesignPatterns.BuilderPattern", "DesignPatterns.BuilderPattern\DesignPatterns.BuilderPattern.csproj", "{4E1C334C-7252-4BDD-A5FC-BFF5C47B21BD}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DesignPatterns.BuilderPattern", "DesignPatterns.BuilderPattern\DesignPatterns.BuilderPattern.csproj", "{4E1C334C-7252-4BDD-A5FC-BFF5C47B21BD}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DesignPatterns.FactoryPattern", "DesignPatterns.FactoryPattern\DesignPatterns.FactoryPattern.csproj", "{F6D17404-D51A-402F-A467-380EE6805CC1}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,6 +23,10 @@ Global
 		{4E1C334C-7252-4BDD-A5FC-BFF5C47B21BD}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{4E1C334C-7252-4BDD-A5FC-BFF5C47B21BD}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{4E1C334C-7252-4BDD-A5FC-BFF5C47B21BD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F6D17404-D51A-402F-A467-380EE6805CC1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F6D17404-D51A-402F-A467-380EE6805CC1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F6D17404-D51A-402F-A467-380EE6805CC1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F6D17404-D51A-402F-A467-380EE6805CC1}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
