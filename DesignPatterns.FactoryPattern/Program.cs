@@ -1,47 +1,91 @@
-﻿using DesignPatterns.FactoryPattern;
-using DesignPatterns.FactoryPattern;
+﻿PizzaStore aPizzaStore = new APizzaStore();
+PizzaStore bPizzaStore = new BPizzaStore();
 
-#region Method1
-//string cardType = "MoneyBack";
-//ICreditCard creditCard = null;
+IPizza aCheesePizza = aPizzaStore.OrderPizza("cheese");
+IPizza aVeggiPizza = aPizzaStore.OrderPizza("veggi");
 
-//if (cardType == "MoneyBack")
-//    creditCard = new MoneyBack();
-//else if (cardType == "Titanium")
-//    creditCard = new Titanium();
-//else if (cardType == "Platinum")
-//    creditCard = new Platinum();
-
-//if (creditCard != null)
-//{
-//    Console.WriteLine(creditCard.GetCardType());
-//    Console.WriteLine(creditCard.GetCreditLimit());
-//    Console.WriteLine(creditCard.GetAnnualCharge());
-//}
-//else
-//    Console.WriteLine("Invalid card type");
-#endregion
-
-#region Method2
-//ICreditCard cardDetails = CreditCardFactory1.GetCreditCard("Platinum");
-//if (cardDetails != null)
-//{
-//    Console.WriteLine(cardDetails.GetCardType());
-//    Console.WriteLine(cardDetails.GetCreditLimit());
-//    Console.WriteLine(cardDetails.GetAnnualCharge());
-//}
-//else
-//    Console.Write("Invalid Card Type");
-#endregion
-
-#region Method3
-ICreditCard creditCard = new PlatinumFactory().CreateProduct();
-if (creditCard != null)
+IPizza bCheesePizza = bPizzaStore.OrderPizza("cheese");
+IPizza bVeggiPizza = bPizzaStore.OrderPizza("veggi");
+interface IPizza
 {
-    Console.WriteLine(creditCard.GetCardType());
-    Console.WriteLine(creditCard.GetCreditLimit());
-    Console.WriteLine(creditCard.GetAnnualCharge());
+    void Prepare();
+    void Bake();
+    void Cut();
 }
-else
-    Console.Write("Invalid Card Type");
-#endregion
+
+class CheesePizza : IPizza
+{
+    public void Bake()
+    {
+        Console.WriteLine("Cheese pizza baked");
+    }
+
+    public void Cut()
+    {
+        Console.WriteLine("Cheese pizza cut");
+    }
+
+    public void Prepare()
+    {
+        Console.WriteLine("Cheese pizza prepared");
+    }
+}
+
+class VeggiPizza : IPizza
+{
+    public void Bake()
+    {
+        Console.WriteLine("Veggi pizza baked");
+    }
+
+    public void Cut()
+    {
+        Console.WriteLine("Veggi pizza cut");
+    }
+
+    public void Prepare()
+    {
+        Console.WriteLine("Veggi pizza prepared");
+    }
+}
+
+abstract class PizzaStore
+{
+    protected abstract IPizza CreatePizza(string type);
+    public IPizza OrderPizza(string type)
+    {
+        IPizza pizza = CreatePizza(type);
+
+        pizza.Prepare();
+        pizza.Bake();
+        pizza.Cut();
+
+        return pizza;
+    }
+}
+
+class APizzaStore : PizzaStore
+{
+    protected override IPizza CreatePizza(string type)
+    {
+        return type switch
+        {
+            "cheese" => new CheesePizza(),
+            "veggi" => new VeggiPizza(),
+            _ => throw new ArgumentException("Invalid pizza type", nameof(type))
+        };
+    }
+}
+
+class BPizzaStore : PizzaStore
+{
+    protected override IPizza CreatePizza(string type)
+    {
+        return type switch
+        {
+            "cheese" => new CheesePizza(),
+            "veggi" => new VeggiPizza(),
+            _ => throw new ArgumentException("Invalid pizza type", nameof(type))
+        };
+    }
+}
